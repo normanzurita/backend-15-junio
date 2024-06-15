@@ -29,9 +29,8 @@ app.get('/clients/:id', (req, res) => {
 });
 
 app.post('/clients', (req, res) => {
-    const info = req.body
+    const info = req.body;
     const clientsAmount = (Object.keys(clients)).length + 1
-    console.log(clientsAmount)
     clients[clientsAmount] = info
     res.status(201).json({
         clients,
