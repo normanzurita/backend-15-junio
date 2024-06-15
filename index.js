@@ -19,6 +19,15 @@ app.get('/clients', (req, res) => {
     });
 });
 
+app.get('/clients/:id', (req, res) => {
+    const clientid = req.params.id
+    const myClient = clients[clientid]
+    res.status(200).json({
+        myClient,
+        message: 'This is your requested client'
+    });
+});
+
 app.post('/clients', (req, res) => {
     const info = req.body
     const clientsAmount = (Object.keys(clients)).length + 1
